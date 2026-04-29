@@ -261,7 +261,7 @@ export default function App() {
               <div>
                 <p className="text-xl font-bold tracking-tight">Kinnerly</p>
                 <p className="text-xs font-medium uppercase tracking-[0.18em] text-stone-500">
-                  Relationship Autopilot
+                  For the People Who Matter Most.
                 </p>
               </div>
             </div>
