@@ -1,122 +1,529 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from './assets/vite.svg'
-import heroImg from './assets/hero.png'
-import './App.css'
+import { useState } from "react";
+import {
+  Heart,
+  Users,
+  Sparkles,
+  MessageCircle,
+  Lock,
+  Gift,
+  ArrowRight,
+  CheckCircle2,
+  Mail,
+  CalendarHeart,
+  BookHeart,
+  ShieldCheck,
+} from "lucide-react";
 
-function App() {
-  const [count, setCount] = useState(0)
+const sampleQuestions = [
+  "What is one family story we should never forget?",
+  "What is something Grandma always said?",
+  "What is your funniest memory from when we were kids?",
+  "What is one thing Dad taught you without realizing it?",
+  "What is a small moment with our family that still makes you smile?",
+];
 
+const nudges = [
+  {
+    name: "Mom",
+    label: "Gentle check-in",
+    message:
+      "Text Mom: ‘I was thinking about you today. What’s one thing that made you smile this week?’",
+  },
+  {
+    name: "Cousins",
+    label: "One Question Drop",
+    message:
+      "Ask your cousins: ‘What is the funniest thing that ever happened at a family gathering?’",
+  },
+  {
+    name: "Dad",
+    label: "Memory starter",
+    message:
+      "Ask Dad: ‘What was something your father taught you that you still remember?’",
+  },
+];
+
+function Badge({ children }) {
   return (
-    <>
-      <section id="center">
-        <div className="hero">
-          <img src={heroImg} className="base" width="170" height="179" alt="" />
-          <img src={reactLogo} className="framework" alt="React logo" />
-          <img src={viteLogo} className="vite" alt="Vite logo" />
-        </div>
-        <div>
-          <h1>Get started</h1>
-          <p>
-            Edit <code>src/App.jsx</code> and save to test <code>HMR</code>
-          </p>
-        </div>
-        <button
-          type="button"
-          className="counter"
-          onClick={() => setCount((count) => count + 1)}
-        >
-          Count is {count}
-        </button>
-      </section>
-
-      <div className="ticks"></div>
-
-      <section id="next-steps">
-        <div id="docs">
-          <svg className="icon" role="presentation" aria-hidden="true">
-            <use href="/icons.svg#documentation-icon"></use>
-          </svg>
-          <h2>Documentation</h2>
-          <p>Your questions, answered</p>
-          <ul>
-            <li>
-              <a href="https://vite.dev/" target="_blank">
-                <img className="logo" src={viteLogo} alt="" />
-                Explore Vite
-              </a>
-            </li>
-            <li>
-              <a href="https://react.dev/" target="_blank">
-                <img className="button-icon" src={reactLogo} alt="" />
-                Learn more
-              </a>
-            </li>
-          </ul>
-        </div>
-        <div id="social">
-          <svg className="icon" role="presentation" aria-hidden="true">
-            <use href="/icons.svg#social-icon"></use>
-          </svg>
-          <h2>Connect with us</h2>
-          <p>Join the Vite community</p>
-          <ul>
-            <li>
-              <a href="https://github.com/vitejs/vite" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#github-icon"></use>
-                </svg>
-                GitHub
-              </a>
-            </li>
-            <li>
-              <a href="https://chat.vite.dev/" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#discord-icon"></use>
-                </svg>
-                Discord
-              </a>
-            </li>
-            <li>
-              <a href="https://x.com/vite_js" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#x-icon"></use>
-                </svg>
-                X.com
-              </a>
-            </li>
-            <li>
-              <a href="https://bsky.app/profile/vite.dev" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#bluesky-icon"></use>
-                </svg>
-                Bluesky
-              </a>
-            </li>
-          </ul>
-        </div>
-      </section>
-
-      <div className="ticks"></div>
-      <section id="spacer"></section>
-    </>
-  )
+    <span className="inline-flex items-center rounded-full border border-rose-200 bg-white/80 px-3 py-1 text-xs font-medium text-rose-700 shadow-sm">
+      {children}
+    </span>
+  );
 }
 
-export default App
+function FeatureCard({ icon: Icon, title, children }) {
+  return (
+    <div className="rounded-3xl border border-stone-200 bg-white p-6 shadow-sm">
+      <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-2xl bg-rose-50 text-rose-600">
+        <Icon size={24} />
+      </div>
+      <h3 className="mb-2 text-lg font-semibold text-stone-950">{title}</h3>
+      <p className="text-sm leading-6 text-stone-600">{children}</p>
+    </div>
+  );
+}
+
+function WaitlistForm() {
+  const [submitted, setSubmitted] = useState(false);
+  const [form, setForm] = useState({
+    name: "",
+    email: "",
+    useCase: "Parents or grandparents",
+  });
+
+  function handleSubmit(e) {
+    e.preventDefault();
+    setSubmitted(true);
+  }
+
+  if (submitted) {
+    return (
+      <div className="rounded-3xl border border-emerald-200 bg-emerald-50 p-6 text-center shadow-sm">
+        <div className="mx-auto mb-3 flex h-12 w-12 items-center justify-center rounded-full bg-white text-emerald-600">
+          <CheckCircle2 />
+        </div>
+        <h3 className="text-xl font-semibold text-stone-950">
+          You’re on the early access list.
+        </h3>
+        <p className="mt-2 text-sm leading-6 text-stone-600">
+          This prototype is not connected to a live database yet, but this is
+          the exact flow the real waitlist will use.
+        </p>
+      </div>
+    );
+  }
+
+  return (
+    <form
+      onSubmit={handleSubmit}
+      className="rounded-3xl border border-stone-200 bg-white p-5 shadow-xl shadow-rose-950/5 sm:p-6"
+    >
+      <div className="mb-5">
+        <h3 className="text-xl font-semibold text-stone-950">
+          Join the private beta
+        </h3>
+        <p className="mt-1 text-sm text-stone-600">
+          Be among the first families invited into Kinnerly.
+        </p>
+      </div>
+
+      <label className="mb-4 block">
+        <span className="mb-1 block text-sm font-medium text-stone-700">
+          First name
+        </span>
+        <input
+          value={form.name}
+          onChange={(e) => setForm({ ...form, name: e.target.value })}
+          required
+          placeholder="John"
+          className="w-full rounded-2xl border border-stone-200 bg-stone-50 px-4 py-3 text-stone-900 outline-none ring-rose-200 transition focus:border-rose-300 focus:ring-4"
+        />
+      </label>
+
+      <label className="mb-4 block">
+        <span className="mb-1 block text-sm font-medium text-stone-700">
+          Email
+        </span>
+        <input
+          value={form.email}
+          onChange={(e) => setForm({ ...form, email: e.target.value })}
+          required
+          type="email"
+          placeholder="you@example.com"
+          className="w-full rounded-2xl border border-stone-200 bg-stone-50 px-4 py-3 text-stone-900 outline-none ring-rose-200 transition focus:border-rose-300 focus:ring-4"
+        />
+      </label>
+
+      <label className="mb-5 block">
+        <span className="mb-1 block text-sm font-medium text-stone-700">
+          Who would you use Kinnerly for?
+        </span>
+        <select
+          value={form.useCase}
+          onChange={(e) => setForm({ ...form, useCase: e.target.value })}
+          className="w-full rounded-2xl border border-stone-200 bg-stone-50 px-4 py-3 text-stone-900 outline-none ring-rose-200 transition focus:border-rose-300 focus:ring-4"
+        >
+          <option>Parents or grandparents</option>
+          <option>Children or grandchildren</option>
+          <option>Siblings and cousins</option>
+          <option>Close friends</option>
+          <option>Family reunion</option>
+          <option>Legacy stories</option>
+        </select>
+      </label>
+
+      <button className="group flex w-full items-center justify-center rounded-2xl bg-stone-950 px-5 py-3 font-semibold text-white transition hover:bg-rose-700">
+        Request early access
+        <ArrowRight
+          className="ml-2 transition group-hover:translate-x-1"
+          size={18}
+        />
+      </button>
+
+      <p className="mt-4 text-center text-xs leading-5 text-stone-500">
+        Private by design. No public feed. No posting without permission.
+      </p>
+    </form>
+  );
+}
+
+function PromptDemo() {
+  const [index, setIndex] = useState(0);
+  const question = sampleQuestions[index];
+
+  return (
+    <div className="rounded-[2rem] border border-stone-200 bg-white p-5 shadow-xl shadow-rose-950/5">
+      <div className="mb-4 flex items-center justify-between">
+        <div>
+          <p className="text-xs font-semibold uppercase tracking-[0.2em] text-rose-500">
+            One Question Drop
+          </p>
+          <h3 className="mt-1 text-xl font-semibold text-stone-950">
+            Start a memory thread
+          </h3>
+        </div>
+        <div className="flex h-11 w-11 items-center justify-center rounded-2xl bg-rose-50 text-rose-600">
+          <Sparkles size={22} />
+        </div>
+      </div>
+
+      <div className="rounded-3xl bg-stone-50 p-5">
+        <p className="mb-2 text-sm font-medium text-stone-500">
+          Suggested question
+        </p>
+        <p className="text-2xl font-semibold leading-snug text-stone-950">
+          “{question}”
+        </p>
+      </div>
+
+      <div className="mt-4 grid grid-cols-2 gap-3">
+        <button
+          type="button"
+          onClick={() => setIndex((index + 1) % sampleQuestions.length)}
+          className="rounded-2xl border border-stone-200 bg-white px-4 py-3 text-sm font-semibold text-stone-800 transition hover:bg-stone-50"
+        >
+          New question
+        </button>
+        <button
+          type="button"
+          className="rounded-2xl bg-rose-600 px-4 py-3 text-sm font-semibold text-white transition hover:bg-rose-700"
+        >
+          Send to family
+        </button>
+      </div>
+    </div>
+  );
+}
+
+function NudgeStack() {
+  return (
+    <div className="space-y-3">
+      {nudges.map((nudge, idx) => (
+        <div
+          key={nudge.name}
+          className={`rounded-3xl border border-stone-200 bg-white p-4 shadow-sm ${
+            idx === 1 ? "ml-5" : ""
+          }`}
+        >
+          <div className="mb-2 flex items-center justify-between">
+            <div className="flex items-center gap-3">
+              <div className="flex h-10 w-10 items-center justify-center rounded-full bg-stone-950 text-sm font-bold text-white">
+                {nudge.name[0]}
+              </div>
+              <div>
+                <p className="text-sm font-semibold text-stone-950">
+                  {nudge.name}
+                </p>
+                <p className="text-xs text-rose-500">{nudge.label}</p>
+              </div>
+            </div>
+            <Heart size={18} className="text-rose-400" />
+          </div>
+          <p className="text-sm leading-6 text-stone-600">{nudge.message}</p>
+        </div>
+      ))}
+    </div>
+  );
+}
+
+export default function App() {
+  return (
+    <main className="min-h-screen bg-[#fffaf7] text-stone-950">
+      <section className="relative overflow-hidden">
+        <div className="absolute left-1/2 top-0 h-[600px] w-[600px] -translate-x-1/2 rounded-full bg-rose-200/40 blur-3xl" />
+
+        <div className="relative mx-auto max-w-7xl px-5 pb-20 pt-6 sm:px-8 lg:px-10">
+          <nav className="mb-16 flex items-center justify-between">
+            <div className="flex items-center gap-3">
+              <div className="flex h-11 w-11 items-center justify-center rounded-2xl bg-stone-950 text-white shadow-lg shadow-stone-950/15">
+                <Heart size={22} fill="currentColor" />
+              </div>
+              <div>
+                <p className="text-xl font-bold tracking-tight">Kinnerly</p>
+                <p className="text-xs font-medium uppercase tracking-[0.18em] text-stone-500">
+                  Relationship Autopilot
+                </p>
+              </div>
+            </div>
+
+            <a
+              href="#waitlist"
+              className="hidden rounded-full bg-white px-5 py-2.5 text-sm font-semibold text-stone-900 shadow-sm ring-1 ring-stone-200 transition hover:bg-stone-50 sm:inline-flex"
+            >
+              Join beta
+            </a>
+          </nav>
+
+          <div className="grid items-center gap-12 lg:grid-cols-[1.05fr_0.95fr]">
+            <div>
+              <div className="mb-5 flex flex-wrap gap-2">
+                <Badge>Private beta opening soon</Badge>
+                <Badge>No public feed</Badge>
+                <Badge>Family-first</Badge>
+              </div>
+
+              <h1 className="max-w-4xl text-5xl font-black tracking-tight text-stone-950 sm:text-6xl lg:text-7xl">
+                Never lose touch with the people who matter most.
+              </h1>
+
+              <p className="mt-6 max-w-2xl text-lg leading-8 text-stone-600 sm:text-xl">
+                Kinnerly helps you send thoughtful check-ins, ask meaningful
+                family questions, and save the stories you never want to lose —
+                all through gentle AI nudges and private memory threads.
+              </p>
+
+              <div className="mt-8 flex flex-col gap-3 sm:flex-row">
+                <a
+                  href="#waitlist"
+                  className="group inline-flex items-center justify-center rounded-2xl bg-stone-950 px-6 py-4 font-semibold text-white shadow-xl shadow-stone-950/15 transition hover:bg-rose-700"
+                >
+                  Join the private beta
+                  <ArrowRight
+                    className="ml-2 transition group-hover:translate-x-1"
+                    size={19}
+                  />
+                </a>
+
+                <a
+                  href="#how"
+                  className="inline-flex items-center justify-center rounded-2xl bg-white px-6 py-4 font-semibold text-stone-900 shadow-sm ring-1 ring-stone-200 transition hover:bg-stone-50"
+                >
+                  See how it works
+                </a>
+              </div>
+
+              <p className="mt-5 text-sm text-stone-500">
+                Built for parents, grandparents, siblings, cousins, old friends,
+                and the people you keep meaning to call.
+              </p>
+            </div>
+
+            <div className="grid gap-5">
+              <PromptDemo />
+              <NudgeStack />
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section className="border-y border-stone-200 bg-white/70 px-5 py-10 backdrop-blur">
+        <div className="mx-auto grid max-w-6xl gap-6 text-center sm:grid-cols-3">
+          <div>
+            <p className="text-3xl font-black text-stone-950">1 question</p>
+            <p className="mt-1 text-sm text-stone-600">
+              can bring back a story
+            </p>
+          </div>
+
+          <div>
+            <p className="text-3xl font-black text-stone-950">3 minutes</p>
+            <p className="mt-1 text-sm text-stone-600">
+              to start a memory thread
+            </p>
+          </div>
+
+          <div>
+            <p className="text-3xl font-black text-stone-950">0 feeds</p>
+            <p className="mt-1 text-sm text-stone-600">
+              no scrolling, no public posting
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section
+        id="how"
+        className="mx-auto max-w-7xl px-5 py-20 sm:px-8 lg:px-10"
+      >
+        <div className="mx-auto mb-12 max-w-3xl text-center">
+          <p className="mb-3 text-sm font-bold uppercase tracking-[0.22em] text-rose-500">
+            How it works
+          </p>
+          <h2 className="text-4xl font-black tracking-tight sm:text-5xl">
+            Small moments. Lasting bonds.
+          </h2>
+          <p className="mt-4 text-lg leading-8 text-stone-600">
+            Kinnerly turns good intentions into simple, meaningful actions that
+            keep relationships alive.
+          </p>
+        </div>
+
+        <div className="grid gap-5 md:grid-cols-2 lg:grid-cols-4">
+          <FeatureCard icon={Users} title="Pick your people">
+            Add the parents, grandparents, siblings, cousins, friends, or loved
+            ones you never want to drift away from.
+          </FeatureCard>
+
+          <FeatureCard icon={CalendarHeart} title="Get gentle nudges">
+            Receive thoughtful reminders, birthday prompts, and message ideas
+            based on each relationship and tone.
+          </FeatureCard>
+
+          <FeatureCard icon={MessageCircle} title="Ask one question">
+            Send a private One Question Drop to start a conversation without the
+            awkward group-chat pressure.
+          </FeatureCard>
+
+          <FeatureCard icon={BookHeart} title="Save the stories">
+            Replies become private Memory Threads that grow into keepsakes your
+            family can revisit for years.
+          </FeatureCard>
+        </div>
+      </section>
+
+      <section className="bg-stone-950 px-5 py-20 text-white sm:px-8 lg:px-10">
+        <div className="mx-auto grid max-w-7xl items-center gap-12 lg:grid-cols-2">
+          <div>
+            <p className="mb-3 text-sm font-bold uppercase tracking-[0.22em] text-rose-300">
+              The big idea
+            </p>
+            <h2 className="text-4xl font-black tracking-tight sm:text-5xl">
+              Most people do not drift apart because they stop caring.
+            </h2>
+            <p className="mt-5 text-lg leading-8 text-stone-300">
+              They drift because life gets busy. Kinnerly is designed to quietly
+              help you remember, reach out, and preserve what matters before the
+              stories disappear.
+            </p>
+          </div>
+
+          <div className="rounded-[2rem] bg-white p-5 text-stone-950 shadow-2xl shadow-black/20">
+            <div className="rounded-3xl bg-[#fff6f4] p-5">
+              <div className="mb-4 flex items-center gap-3">
+                <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-rose-600 text-white">
+                  <Gift />
+                </div>
+                <div>
+                  <p className="font-semibold">Kinnerly Card</p>
+                  <p className="text-sm text-stone-500">
+                    Private family keepsake
+                  </p>
+                </div>
+              </div>
+
+              <p className="text-sm font-medium text-stone-500">Question</p>
+              <p className="mt-1 text-xl font-bold">
+                “What is something Grandma always said?”
+              </p>
+
+              <div className="mt-5 space-y-3">
+                <div className="rounded-2xl bg-white p-4 shadow-sm">
+                  <p className="text-sm leading-6 text-stone-700">
+                    “She always said, ‘Eat first, argue later.’ Somehow that
+                    solved everything.”
+                  </p>
+                  <p className="mt-2 text-xs font-semibold text-rose-500">
+                    — Cousin Maria
+                  </p>
+                </div>
+
+                <div className="rounded-2xl bg-white p-4 shadow-sm">
+                  <p className="text-sm leading-6 text-stone-700">
+                    “Every Sunday she reminded us that family was the only thing
+                    you could take with you in your heart.”
+                  </p>
+                  <p className="mt-2 text-xs font-semibold text-rose-500">
+                    — Uncle Joe
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      
+      <section className="mx-auto max-w-7xl px-5 py-20 sm:px-8 lg:px-10">
+        <div className="grid gap-6 lg:grid-cols-[0.85fr_1.15fr]">
+          <div>
+            <p className="mb-3 text-sm font-bold uppercase tracking-[0.22em] text-rose-500">
+              Private by design
+            </p>
+            <h2 className="text-4xl font-black tracking-tight sm:text-5xl">
+              Not another social network.
+            </h2>
+            <p className="mt-5 text-lg leading-8 text-stone-600">
+              Kinnerly is built for real relationships, not public performance.
+              Your memories, messages, and family stories belong to you and the
+              people you choose.
+            </p>
+          </div>
+
+          <div className="grid gap-5 sm:grid-cols-2">
+            <FeatureCard icon={Lock} title="No public feed">
+              Memory Threads are private. There is no popularity contest, no
+              followers, and no public profile by default.
+            </FeatureCard>
+
+            <FeatureCard icon={ShieldCheck} title="You stay in control">
+              Nothing is posted or sent without your permission. You approve
+              every prompt and every invitation.
+            </FeatureCard>
+          </div>
+        </div>
+      </section>
+
+      <section id="waitlist" className="mx-auto grid max-w-7xl gap-10 px-5 py-20 sm:px-8 lg:grid-cols-[1fr_0.85fr] lg:px-10">
+        <div>
+          <p className="mb-3 text-sm font-bold uppercase tracking-[0.22em] text-rose-500">
+            Early access
+          </p>
+          <h2 className="text-4xl font-black tracking-tight sm:text-5xl">
+            Help shape Kinnerly before launch.
+          </h2>
+          <p className="mt-5 max-w-2xl text-lg leading-8 text-stone-600">
+            The first private beta will focus on families who want to stay
+            closer, ask better questions, and preserve stories before they fade.
+          </p>
+
+          <div className="mt-8 grid gap-4 sm:grid-cols-2">
+            <div className="rounded-3xl bg-white p-5 shadow-sm ring-1 ring-stone-200">
+              <Mail className="mb-3 text-rose-500" />
+              <h3 className="font-bold">Beta invite</h3>
+              <p className="mt-1 text-sm leading-6 text-stone-600">
+                Get invited when the first real version is ready.
+              </p>
+            </div>
+
+            <div className="rounded-3xl bg-white p-5 shadow-sm ring-1 ring-stone-200">
+              <Sparkles className="mb-3 text-rose-500" />
+              <h3 className="font-bold">Founder feedback</h3>
+              <p className="mt-1 text-sm leading-6 text-stone-600">
+                Vote on the prompts, features, and family tools that matter
+                most.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <WaitlistForm />
+      </section>
+
+      <footer className="border-t border-stone-200 px-5 py-10 sm:px-8 lg:px-10">
+        <div className="mx-auto flex max-w-7xl flex-col justify-between gap-4 text-sm text-stone-500 sm:flex-row">
+          <p>© 2026 Kinnerly. Working prototype.</p>
+          <p>Keep your people close.</p>
+        </div>
+      </footer>
+    </main>
+  );
+}
