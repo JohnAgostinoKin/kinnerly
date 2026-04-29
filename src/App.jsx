@@ -1,3 +1,4 @@
+import { supabase } from "./supabaseClient";
 import { useState } from "react";
 import {
   Heart,
@@ -71,9 +72,26 @@ function WaitlistForm() {
     useCase: "Parents or grandparents",
   });
 
-  function handleSubmit(e) {
-    e.preventDefault();
-    setSubmitted(true);
+  async function handleSubmit(e) {
+  e.preventDefault();
+
+  const { error } = await supabase.from("waitlist").insert([
+    {
+      first_name: form.name,
+      email: form.email,
+      use_case: form.useCase,
+      source: "kinnerly_landing_page",
+    },
+  ]);
+
+  if (error && error.code !== "23505") {
+    alert("Something went wrong. Please try again.");
+    console.error(error);
+    return;
+  }
+
+  setSubmitted(true);
+}
   }
 
   if (submitted) {
@@ -164,8 +182,8 @@ function WaitlistForm() {
         Private by design. No public feed. No posting without permission.
       </p>
     </form>
-  );
-}
+    );
+ }
 
 function PromptDemo() {
   const [index, setIndex] = useState(0);
