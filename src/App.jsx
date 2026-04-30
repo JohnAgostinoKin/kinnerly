@@ -150,19 +150,90 @@ export default function App() {
                 </div>
 
                 <div className="rounded-2xl bg-white p-4 shadow-sm ring-1 ring-stone-200">
-                  <p className="text-sm font-medium text-stone-500">
-                    Suggested question
-                  </p>
-                  <p className="mt-1 text-lg font-semibold leading-snug text-stone-950">
-                    “{sampleQuestions[0]}”
-                  </p>
-                </div>
+  <p className="text-sm font-medium text-stone-500">
+    Suggested message
+  </p>
+  <p className="mt-1 text-lg font-semibold leading-snug text-stone-950">
+    “I’ll be near Charlotte next week and thought of you. Would love to say hello if timing works.”
+  </p>
+</div>
               </div>
             </div>
           </div>
         </div>
       </section>
+      <section className="mx-auto max-w-7xl px-5 py-20 sm:px-8 lg:px-10">
+  <div className="mx-auto mb-12 max-w-3xl text-center">
+    <p className="mb-3 text-sm font-bold uppercase tracking-[0.22em] text-rose-500">
+      Memory Starters
+    </p>
+    <h2 className="text-4xl font-black tracking-tight sm:text-5xl">
+      One simple question can bring back a story.
+    </h2>
+    <p className="mt-4 text-lg leading-8 text-stone-600">
+      Kinnerly helps you send meaningful prompts to family and close friends —
+      then saves the replies as private Memory Threads.
+    </p>
+  </div>
 
+  <div className="grid gap-5 md:grid-cols-2 lg:grid-cols-3">
+    <div className="rounded-3xl border border-stone-200 bg-white p-6 shadow-sm">
+      <p className="text-xs font-semibold uppercase tracking-[0.2em] text-rose-500">
+        Memory Starter
+      </p>
+      <p className="mt-3 text-lg font-semibold leading-8 text-stone-950">
+        “What is one family story we should never forget?”
+      </p>
+    </div>
+
+    <div className="rounded-3xl border border-stone-200 bg-white p-6 shadow-sm">
+      <p className="text-xs font-semibold uppercase tracking-[0.2em] text-rose-500">
+        Memory Starter
+      </p>
+      <p className="mt-3 text-lg font-semibold leading-8 text-stone-950">
+        “What is something Grandma always said?”
+      </p>
+    </div>
+
+    <div className="rounded-3xl border border-stone-200 bg-white p-6 shadow-sm">
+      <p className="text-xs font-semibold uppercase tracking-[0.2em] text-rose-500">
+        Memory Starter
+      </p>
+      <p className="mt-3 text-lg font-semibold leading-8 text-stone-950">
+        “What do you remember about this photo?”
+      </p>
+    </div>
+
+    <div className="rounded-3xl border border-stone-200 bg-white p-6 shadow-sm">
+      <p className="text-xs font-semibold uppercase tracking-[0.2em] text-rose-500">
+        Memory Starter
+      </p>
+      <p className="mt-3 text-lg font-semibold leading-8 text-stone-950">
+        “What was Dad like when he was young?”
+      </p>
+    </div>
+
+    <div className="rounded-3xl border border-stone-200 bg-white p-6 shadow-sm">
+      <p className="text-xs font-semibold uppercase tracking-[0.2em] text-rose-500">
+        Memory Starter
+      </p>
+      <p className="mt-3 text-lg font-semibold leading-8 text-stone-950">
+        “What family recipe should never be lost?”
+      </p>
+    </div>
+
+    <div className="rounded-3xl border border-rose-200 bg-rose-50 p-6 shadow-sm">
+      <p className="text-xs font-semibold uppercase tracking-[0.2em] text-rose-600">
+        Why it matters
+      </p>
+      <p className="mt-3 text-sm leading-7 text-stone-700">
+        A simple prompt can unlock stories, details, and memories that might
+        otherwise disappear. Kinnerly helps capture them while there’s still
+        time.
+      </p>
+    </div>
+  </div>
+</section>
       <section className="mx-auto max-w-7xl px-5 py-6 sm:px-8 lg:px-10">
         <div className="rounded-[2rem] border border-stone-200 bg-white p-6 shadow-sm">
           <div className="mb-4">
