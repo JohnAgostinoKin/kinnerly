@@ -1,4 +1,4 @@
-
+import { Analytics } from "@vercel/analytics/react";
 import {
   Heart,
   Sparkles,
@@ -427,6 +427,7 @@ export default function App() {
           <p>People. Places. Moments. Memories.</p>
         </div>
       </footer>
+      <Analytics />
     </main>
   );
 }
