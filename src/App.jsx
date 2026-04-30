@@ -1,4 +1,3 @@
-import { supabase } from "./supabaseClient";
 import { useState } from "react";
 import {
   Heart,
@@ -14,6 +13,7 @@ import {
   BookHeart,
   ShieldCheck,
 } from "lucide-react";
+import { supabase } from "./supabaseClient";
 
 const sampleQuestions = [
   "What is one family story we should never forget?",
@@ -66,6 +66,7 @@ function FeatureCard({ icon: Icon, title, children }) {
 
 function WaitlistForm() {
   const [submitted, setSubmitted] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
   const [form, setForm] = useState({
     name: "",
     email: "",
@@ -73,25 +74,27 @@ function WaitlistForm() {
   });
 
   async function handleSubmit(e) {
-  e.preventDefault();
+    e.preventDefault();
+    setIsSubmitting(true);
 
-  const { error } = await supabase.from("waitlist").insert([
-    {
-      first_name: form.name,
-      email: form.email,
-      use_case: form.useCase,
-      source: "kinnerly_landing_page",
-    },
-  ]);
+    const { error } = await supabase.from("waitlist").insert([
+      {
+        first_name: form.name,
+        email: form.email,
+        use_case: form.useCase,
+        source: "kinnerly_landing_page",
+      },
+    ]);
 
-  if (error && error.code !== "23505") {
-    alert("Something went wrong. Please try again.");
-    console.error(error);
-    return;
-  }
+    setIsSubmitting(false);
 
-  setSubmitted(true);
-}
+    if (error && error.code !== "23505") {
+      alert("Something went wrong. Please try again.");
+      console.error(error);
+      return;
+    }
+
+    setSubmitted(true);
   }
 
   if (submitted) {
@@ -104,8 +107,7 @@ function WaitlistForm() {
           You’re on the early access list.
         </h3>
         <p className="mt-2 text-sm leading-6 text-stone-600">
-          This prototype is not connected to a live database yet, but this is
-          the exact flow the real waitlist will use.
+          Thanks for joining Kinnerly. We’ll be in touch as the private beta opens.
         </p>
       </div>
     );
@@ -170,8 +172,11 @@ function WaitlistForm() {
         </select>
       </label>
 
-      <button className="group flex w-full items-center justify-center rounded-2xl bg-stone-950 px-5 py-3 font-semibold text-white transition hover:bg-rose-700">
-        Request early access
+      <button
+        disabled={isSubmitting}
+        className="group flex w-full items-center justify-center rounded-2xl bg-stone-950 px-5 py-3 font-semibold text-white transition hover:bg-rose-700 disabled:opacity-60"
+      >
+        {isSubmitting ? "Joining..." : "Request early access"}
         <ArrowRight
           className="ml-2 transition group-hover:translate-x-1"
           size={18}
@@ -182,8 +187,8 @@ function WaitlistForm() {
         Private by design. No public feed. No posting without permission.
       </p>
     </form>
-    );
- }
+  );
+}
 
 function PromptDemo() {
   const [index, setIndex] = useState(0);
@@ -279,7 +284,7 @@ export default function App() {
               <div>
                 <p className="text-xl font-bold tracking-tight">Kinnerly</p>
                 <p className="text-xs font-medium uppercase tracking-[0.18em] text-stone-500">
-                  For the People Who Matter Most.
+                  For the people who matter most.
                 </p>
               </div>
             </div>
@@ -307,7 +312,7 @@ export default function App() {
               <p className="mt-6 max-w-2xl text-lg leading-8 text-stone-600 sm:text-xl">
                 Kinnerly helps you send thoughtful check-ins, ask meaningful
                 family questions, and save the stories you never want to lose —
-                all through gentle AI nudges and private memory threads.
+                all through gentle reminders and private memory threads.
               </p>
 
               <div className="mt-8 flex flex-col gap-3 sm:flex-row">
@@ -392,9 +397,9 @@ export default function App() {
             ones you never want to drift away from.
           </FeatureCard>
 
-          <FeatureCard icon={CalendarHeart} title="Get gentle nudges">
+          <FeatureCard icon={CalendarHeart} title="Get gentle reminders">
             Receive thoughtful reminders, birthday prompts, and message ideas
-            based on each relationship and tone.
+            based on each person and occasion.
           </FeatureCard>
 
           <FeatureCard icon={MessageCircle} title="Ask one question">
@@ -500,7 +505,10 @@ export default function App() {
         </div>
       </section>
 
-      <section id="waitlist" className="mx-auto grid max-w-7xl gap-10 px-5 py-20 sm:px-8 lg:grid-cols-[1fr_0.85fr] lg:px-10">
+      <section
+        id="waitlist"
+        className="mx-auto grid max-w-7xl gap-10 px-5 py-20 sm:px-8 lg:grid-cols-[1fr_0.85fr] lg:px-10"
+      >
         <div>
           <p className="mb-3 text-sm font-bold uppercase tracking-[0.22em] text-rose-500">
             Early access
