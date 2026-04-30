@@ -57,7 +57,7 @@ export default function App() {
               <div>
                 <p className="text-xl font-bold tracking-tight">Kinnerly</p>
                 <p className="text-xs font-medium uppercase tracking-[0.18em] text-stone-500">
-                  For the people who matter most.
+                  Keep your people close.
                 </p>
               </div>
             </div>
@@ -85,7 +85,7 @@ export default function App() {
               </div>
 
               <h1 className="max-w-4xl text-5xl font-black tracking-tight text-stone-950 sm:text-6xl lg:text-7xl">
-                See your people. Save their stories. Stay close.
+                Never lose touch with the people who matter most.
               </h1>
 
               <p className="mt-6 max-w-2xl text-lg leading-8 text-stone-600 sm:text-xl">
