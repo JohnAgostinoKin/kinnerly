@@ -10,7 +10,6 @@ import {
   BookHeart,
   ShieldCheck,
 } from "lucide-react";
-import { supabase } from "./supabaseClient";
 
 const sampleQuestions = [
   "What is one family story we should never forget?",
@@ -33,34 +32,14 @@ function FeatureCard({ icon: Icon, title, children }) {
 
 function WaitlistForm() {
   const [submitted, setSubmitted] = useState(false);
-  const [isSubmitting, setIsSubmitting] = useState(false);
   const [form, setForm] = useState({
     name: "",
     email: "",
     useCase: "Parents or grandparents",
   });
 
-  async function handleSubmit(e) {
+  function handleSubmit(e) {
     e.preventDefault();
-    setIsSubmitting(true);
-
-    const { error } = await supabase.from("waitlist").insert([
-      {
-        first_name: form.name,
-        email: form.email,
-        use_case: form.useCase,
-        source: "kinnerly_landing_page",
-      },
-    ]);
-
-    setIsSubmitting(false);
-
-    if (error && error.code !== "23505") {
-      alert("Something went wrong. Please try again.");
-      console.error(error);
-      return;
-    }
-
     setSubmitted(true);
   }
 
@@ -74,7 +53,7 @@ function WaitlistForm() {
           You’re on the early access list.
         </h3>
         <p className="mt-2 text-sm leading-6 text-stone-600">
-          Thanks for joining Kinnerly. We’ll be in touch as the private beta opens.
+          Thanks for joining Kinnerly. The live waitlist database will be connected next.
         </p>
       </div>
     );
@@ -139,11 +118,8 @@ function WaitlistForm() {
         </select>
       </label>
 
-      <button
-        disabled={isSubmitting}
-        className="group flex w-full items-center justify-center rounded-2xl bg-stone-950 px-5 py-3 font-semibold text-white transition hover:bg-rose-700 disabled:opacity-60"
-      >
-        {isSubmitting ? "Joining..." : "Request early access"}
+      <button className="group flex w-full items-center justify-center rounded-2xl bg-stone-950 px-5 py-3 font-semibold text-white transition hover:bg-rose-700">
+        Request early access
         <ArrowRight className="ml-2 transition group-hover:translate-x-1" size={18} />
       </button>
 
@@ -257,10 +233,7 @@ export default function App() {
         </div>
       </section>
 
-      <section
-        id="how"
-        className="mx-auto max-w-7xl px-5 py-20 sm:px-8 lg:px-10"
-      >
+      <section id="how" className="mx-auto max-w-7xl px-5 py-20 sm:px-8 lg:px-10">
         <div className="mx-auto mb-12 max-w-3xl text-center">
           <p className="mb-3 text-sm font-bold uppercase tracking-[0.22em] text-rose-500">
             How it works
@@ -330,10 +303,7 @@ export default function App() {
         </div>
       </section>
 
-      <section
-        id="waitlist"
-        className="mx-auto grid max-w-7xl gap-10 px-5 py-20 sm:px-8 lg:grid-cols-[1fr_0.85fr] lg:px-10"
-      >
+      <section id="waitlist" className="mx-auto grid max-w-7xl gap-10 px-5 py-20 sm:px-8 lg:grid-cols-[1fr_0.85fr] lg:px-10">
         <div>
           <p className="mb-3 text-sm font-bold uppercase tracking-[0.22em] text-rose-500">
             Early access
