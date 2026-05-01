@@ -163,6 +163,37 @@ export default function App() {
           </div>
         </div>
       </section>
+ <section className="mx-auto max-w-7xl px-5 py-6 sm:px-8 lg:px-10">
+        <div className="rounded-[2rem] border border-stone-200 bg-white p-6 shadow-sm">
+          <div className="mb-4">
+            <p className="text-sm font-bold uppercase tracking-[0.22em] text-rose-500">
+              Core concept
+            </p>
+            <h2 className="mt-2 text-3xl font-black tracking-tight sm:text-4xl">
+              People. Places. Moments. Memories.
+            </h2>
+          </div>
+
+          <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-4">
+            <PillarCard
+              title="People"
+              text="Keep track of the family and close friends who matter most."
+            />
+            <PillarCard
+              title="Places"
+              text="See where your people are with a private city-level map."
+            />
+            <PillarCard
+              title="Moments"
+              text="Get gentle reminders for birthdays, travel, and meaningful check-ins."
+            />
+            <PillarCard
+              title="Memories"
+              text="Save the stories behind conversations, moments, and photos."
+            />
+          </div>
+        </div>
+      </section>
       <InnerCirclesSection />
       <section className="mx-auto max-w-7xl px-5 py-20 sm:px-8 lg:px-10">
   <div className="mx-auto mb-12 max-w-3xl text-center">
@@ -237,37 +268,6 @@ export default function App() {
   </div>
 </section>
 
-      <section className="mx-auto max-w-7xl px-5 py-6 sm:px-8 lg:px-10">
-        <div className="rounded-[2rem] border border-stone-200 bg-white p-6 shadow-sm">
-          <div className="mb-4">
-            <p className="text-sm font-bold uppercase tracking-[0.22em] text-rose-500">
-              Core concept
-            </p>
-            <h2 className="mt-2 text-3xl font-black tracking-tight sm:text-4xl">
-              People. Places. Moments. Memories.
-            </h2>
-          </div>
-
-          <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-4">
-            <PillarCard
-              title="People"
-              text="Keep track of the family and close friends who matter most."
-            />
-            <PillarCard
-              title="Places"
-              text="See where your people are with a private city-level map."
-            />
-            <PillarCard
-              title="Moments"
-              text="Get gentle reminders for birthdays, travel, and meaningful check-ins."
-            />
-            <PillarCard
-              title="Memories"
-              text="Save the stories behind conversations, moments, and photos."
-            />
-          </div>
-        </div>
-      </section>
       <section
         id="how"
         className="mx-auto max-w-7xl px-5 py-20 sm:px-8 lg:px-10"
