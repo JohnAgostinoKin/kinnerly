@@ -272,6 +272,7 @@ export default function App() {
   id="how"
   className="mx-auto my-6 max-w-7xl rounded-[2rem] border border-stone-200 bg-stone-50 px-5 py-20 shadow-sm sm:px-8 lg:px-10"
 >
+        <div className="mx-auto mb-12 max-w-3xl text-center">
           <p className="mb-3 text-sm font-bold uppercase tracking-[0.22em] text-rose-500">
             How it works
           </p>
