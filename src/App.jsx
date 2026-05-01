@@ -1,3 +1,4 @@
+import InnerCirclesSection from "./InnerCirclesSection";
 import { Analytics } from "@vercel/analytics/react";
 import {
   Heart,
@@ -266,7 +267,7 @@ export default function App() {
           </div>
         </div>
       </section>
-
+      <InnerCirclesSection />
       <section
         id="how"
         className="mx-auto max-w-7xl px-5 py-20 sm:px-8 lg:px-10"
@@ -482,10 +483,11 @@ export default function App() {
               We’d especially love feedback on:
             </p>
             <ul className="mt-4 space-y-2 text-sm leading-6 text-stone-700">
-              <li>• Kinnerly Map</li>
-              <li>• Story Photos</li>
-              <li>• One-question memory prompts</li>
-              <li>• Gentle reminders for staying in touch</li>
+             <li>• Kinnerly Map</li>
+	     <li>• Inner Circles</li>
+	     <li>• Memory Starters</li>
+	     <li>• Story Photos</li>
+	     <li>• Gentle reminders for staying in touch</li>
             </ul>
           </div>
         </div>
