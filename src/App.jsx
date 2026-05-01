@@ -496,16 +496,17 @@ export default function App() {
           <footer className="border-t border-stone-200 px-5 py-10 sm:px-8 lg:px-10">
         <div className="mx-auto flex max-w-7xl flex-col justify-between gap-4 text-sm text-stone-500 sm:flex-row">
           <p>© 2026 Kinnerly. Working prototype.</p>
-          <p>
-            People. Places. Moments. Memories. 
-            <a href="/privacy.html" className="font-semibold text-rose-600 hover:underline">
-              Privacy Policy
-            </a>
-            <span> | </span>
-            <a href="/terms.html" className="font-semibold text-rose-600 hover:underline">
-              Terms of Use
-            </a>
-          </p>
+         <p>
+  People. Places. Moments. Memories.
+  <span className="mx-2">|</span>
+  <a href="/privacy.html" className="font-semibold text-rose-600 hover:underline">
+    Privacy Policy
+  </a>
+  <span className="mx-2">|</span>
+  <a href="/terms.html" className="font-semibold text-rose-600 hover:underline">
+    Terms of Use
+  </a>
+</p>
         </div>
       </footer>
       <Analytics />
