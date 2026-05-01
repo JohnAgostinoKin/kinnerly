@@ -268,11 +268,10 @@ export default function App() {
   </div>
 </section>
 
-      <section
-        id="how"
-        className="mx-auto max-w-7xl px-5 py-20 sm:px-8 lg:px-10"
-      >
-        <div className="mx-auto mb-12 max-w-3xl text-center">
+     <section
+  id="how"
+  className="mx-auto my-6 max-w-7xl rounded-[2rem] border border-stone-200 bg-stone-50 px-5 py-20 shadow-sm sm:px-8 lg:px-10"
+>
           <p className="mb-3 text-sm font-bold uppercase tracking-[0.22em] text-rose-500">
             How it works
           </p>
@@ -370,7 +369,7 @@ export default function App() {
         </div>
       </section>
 
-      <section className="mx-auto max-w-7xl px-5 py-20 sm:px-8 lg:px-10">
+      <section className="mx-auto my-6 max-w-7xl rounded-[2rem] border border-rose-100 bg-rose-50 px-5 py-20 shadow-sm sm:px-8 lg:px-10">
         <div className="grid items-center gap-12 lg:grid-cols-2">
           <div>
             <p className="mb-3 text-sm font-bold uppercase tracking-[0.22em] text-rose-500">
@@ -462,9 +461,9 @@ export default function App() {
       </section>
 
       <section
-        id="waitlist"
-        className="mx-auto grid max-w-7xl gap-10 px-5 py-20 sm:px-8 lg:grid-cols-[1fr_0.85fr] lg:px-10"
-      >
+  id="waitlist"
+  className="mx-auto my-6 grid max-w-7xl gap-10 rounded-[2rem] border border-stone-200 bg-white px-5 py-20 shadow-sm sm:px-8 lg:grid-cols-[1fr_0.85fr] lg:px-10"
+>
         <div>
           <p className="mb-3 text-sm font-bold uppercase tracking-[0.22em] text-rose-500">
             Early access
@@ -495,7 +494,7 @@ export default function App() {
         <WaitlistForm />
       </section>
 
-          <footer className="border-t border-stone-200 px-5 py-10 sm:px-8 lg:px-10">
+          <footer className="border-t border-stone-200 bg-stone-100 px-5 py-10 sm:px-8 lg:px-10">
         <div className="mx-auto flex max-w-7xl flex-col justify-between gap-4 text-sm text-stone-500 sm:flex-row">
           <p>© 2026 Kinnerly. Working prototype.</p>
          <p>

@@ -14,7 +14,8 @@ function InnerCircleCard({ icon: Icon, title, children }) {
 
 export default function InnerCirclesSection() {
   return (
-    <section className="mx-auto max-w-7xl px-5 py-20 sm:px-8 lg:px-10">
+    <section className="border-y border-stone-200 bg-white">
+  <div className="mx-auto max-w-7xl px-5 py-20 sm:px-8 lg:px-10">
       <div className="grid items-center gap-12 lg:grid-cols-[0.9fr_1.1fr]">
         <div>
           <p className="mb-3 text-sm font-bold uppercase tracking-[0.22em] text-rose-500">
@@ -69,7 +70,8 @@ export default function InnerCirclesSection() {
             simple prompts without downloading an app.
           </InnerCircleCard>
         </div>
-      </div>
-    </section>
+    </div>
+    </div>
+  </section>
   );
 }
