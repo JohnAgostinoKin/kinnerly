@@ -234,6 +234,7 @@ export default function App() {
     </div>
   </div>
 </section>
+
       <section className="mx-auto max-w-7xl px-5 py-6 sm:px-8 lg:px-10">
         <div className="rounded-[2rem] border border-stone-200 bg-white p-6 shadow-sm">
           <div className="mb-4">
@@ -495,7 +496,12 @@ export default function App() {
       <footer className="border-t border-stone-200 px-5 py-10 sm:px-8 lg:px-10">
         <div className="mx-auto flex max-w-7xl flex-col justify-between gap-4 text-sm text-stone-500 sm:flex-row">
           <p>© 2026 Kinnerly. Working prototype.</p>
-          <p>People. Places. Moments. Memories.</p>
+          <p>
+  People. Places. Moments. Memories.{" "}
+  <a href="/privacy.html" className="font-semibold text-rose-600 hover:underline">
+    Privacy Policy
+  </a>
+</p>
         </div>
       </footer>
       <Analytics />
