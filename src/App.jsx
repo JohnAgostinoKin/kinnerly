@@ -267,7 +267,7 @@ export default function App() {
           </div>
         </div>
       </section>
-      <InnerCirclesSection />
+       <InnerCirclesSection />
       <section
         id="how"
         className="mx-auto max-w-7xl px-5 py-20 sm:px-8 lg:px-10"
