@@ -163,6 +163,7 @@ export default function App() {
           </div>
         </div>
       </section>
+      <InnerCirclesSection />
       <section className="mx-auto max-w-7xl px-5 py-20 sm:px-8 lg:px-10">
   <div className="mx-auto mb-12 max-w-3xl text-center">
     <p className="mb-3 text-sm font-bold uppercase tracking-[0.22em] text-rose-500">
@@ -267,7 +268,6 @@ export default function App() {
           </div>
         </div>
       </section>
-       <InnerCirclesSection />
       <section
         id="how"
         className="mx-auto max-w-7xl px-5 py-20 sm:px-8 lg:px-10"
