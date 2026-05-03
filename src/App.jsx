@@ -376,9 +376,7 @@ export default function App() {
       <section className="mx-auto my-6 max-w-7xl rounded-[2rem] border border-rose-100 bg-rose-50 px-5 py-20 shadow-sm sm:px-8 lg:px-10">
         <div className="grid items-center gap-12 lg:grid-cols-2">
           <div>
-            <p className="mb-3 text-sm font-bold uppercase tracking-[0.22em] text-rose-500">
-              New memory feature
-            </p>
+            
             <h2 className="text-4xl font-black tracking-tight sm:text-5xl">
               Story Photos preserve the memory behind the picture.
             </h2>
