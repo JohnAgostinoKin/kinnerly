@@ -5,10 +5,10 @@ function StoryPhotoCard({ image, alt, label, prompt, memory }) {
   return (
     <div className="overflow-hidden rounded-3xl border border-stone-200 bg-white shadow-sm">
       <img
-        src={image}
-        alt={alt}
-        className="h-72 w-full object-cover object-center"
-      />
+  src={image}
+  alt={alt}
+  className="h-72 w-full object-contain bg-stone-100 p-4"
+/>
 
       <div className="p-6">
         <p className="text-xs font-semibold uppercase tracking-[0.2em] text-rose-500">
