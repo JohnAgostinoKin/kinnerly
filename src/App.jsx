@@ -195,6 +195,46 @@ export default function App() {
           </div>
         </div>
       </section>
+      <section
+  id="how"
+  className="mx-auto my-6 max-w-7xl rounded-[2rem] border border-stone-200 bg-stone-50 px-5 py-20 shadow-sm sm:px-8 lg:px-10"
+>
+        <div className="mx-auto mb-12 max-w-3xl text-center">
+          <p className="mb-3 text-sm font-bold uppercase tracking-[0.22em] text-rose-500">
+            How it works
+          </p>
+          <h2 className="text-4xl font-black tracking-tight sm:text-5xl">
+            Small moments. Lasting bonds.
+          </h2>
+          <p className="mt-4 text-lg leading-8 text-stone-600">
+            Kinnerly turns good intentions into simple, meaningful actions that
+            help families and close friends stay connected.
+          </p>
+        </div>
+
+        <div className="grid gap-5 md:grid-cols-2 lg:grid-cols-4">
+          <FeatureCard icon={Users} title="Add your people">
+            Build a private circle of family members and close friends, with
+            relationships, birthdays, notes, and meaningful details.
+          </FeatureCard>
+
+          <FeatureCard icon={MapPinned} title="See where they are">
+            Use a private city-level people map to see who lives nearby, who is
+            near your travels, and where your family branches are today.
+          </FeatureCard>
+
+          <FeatureCard icon={CalendarHeart} title="Get gentle reminders">
+            Receive thoughtful nudges for birthdays, check-ins, holidays, and
+            moments when life takes you near someone you care about.
+          </FeatureCard>
+
+          <FeatureCard icon={BookHeart} title="Save the stories">
+            Turn small questions and shared memories into private threads your
+            family can revisit for years.
+          </FeatureCard>
+        </div>
+      </section>
+      <StoryPhotosSection />
       <InnerCirclesSection />
       <section className="mx-auto max-w-7xl px-5 py-20 sm:px-8 lg:px-10">
   <div className="mx-auto mb-12 max-w-3xl text-center">
@@ -269,45 +309,6 @@ export default function App() {
   </div>
 </section>
 
-     <section
-  id="how"
-  className="mx-auto my-6 max-w-7xl rounded-[2rem] border border-stone-200 bg-stone-50 px-5 py-20 shadow-sm sm:px-8 lg:px-10"
->
-        <div className="mx-auto mb-12 max-w-3xl text-center">
-          <p className="mb-3 text-sm font-bold uppercase tracking-[0.22em] text-rose-500">
-            How it works
-          </p>
-          <h2 className="text-4xl font-black tracking-tight sm:text-5xl">
-            Small moments. Lasting bonds.
-          </h2>
-          <p className="mt-4 text-lg leading-8 text-stone-600">
-            Kinnerly turns good intentions into simple, meaningful actions that
-            help families and close friends stay connected.
-          </p>
-        </div>
-
-        <div className="grid gap-5 md:grid-cols-2 lg:grid-cols-4">
-          <FeatureCard icon={Users} title="Add your people">
-            Build a private circle of family members and close friends, with
-            relationships, birthdays, notes, and meaningful details.
-          </FeatureCard>
-
-          <FeatureCard icon={MapPinned} title="See where they are">
-            Use a private city-level people map to see who lives nearby, who is
-            near your travels, and where your family branches are today.
-          </FeatureCard>
-
-          <FeatureCard icon={CalendarHeart} title="Get gentle reminders">
-            Receive thoughtful nudges for birthdays, check-ins, holidays, and
-            moments when life takes you near someone you care about.
-          </FeatureCard>
-
-          <FeatureCard icon={BookHeart} title="Save the stories">
-            Turn small questions and shared memories into private threads your
-            family can revisit for years.
-          </FeatureCard>
-        </div>
-      </section>
 
       <section className="bg-stone-950 px-5 py-20 text-white sm:px-8 lg:px-10">
         <div className="mx-auto grid max-w-7xl items-center gap-12 lg:grid-cols-2">
@@ -370,8 +371,6 @@ export default function App() {
           </div>
         </div>
       </section>
-     
-      <StoryPhotosSection />
 
       <section className="mx-auto my-6 max-w-7xl rounded-[2rem] border border-rose-100 bg-rose-50 px-5 py-20 shadow-sm sm:px-8 lg:px-10">
         <div className="grid items-center gap-12 lg:grid-cols-2">
