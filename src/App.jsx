@@ -300,6 +300,28 @@ export default function App() {
           </div>
         </div>
       </section>
+       <section className="mx-auto max-w-7xl px-5 pb-10 sm:px-8 lg:px-10">
+        <div className="grid gap-5 md:grid-cols-2 lg:grid-cols-4">
+          <FeatureCard icon={MessageCircle} title="Ask one question">
+            Send one meaningful question to a family member or close friend and
+            spark a story worth saving.
+          </FeatureCard>
+
+          <FeatureCard icon={Camera} title="Add story photos">
+            Attach a photo to a memory so the image and the meaning stay together.
+          </FeatureCard>
+
+          <FeatureCard icon={Sparkles} title="Capture real moments">
+            Kinnerly helps turn ordinary check-ins into stories, reflections, and
+            keepsakes.
+          </FeatureCard>
+
+          <FeatureCard icon={ShieldCheck} title="Private by design">
+            No public feed. No posting without permission. No exact-location
+            tracking. You stay in control.
+          </FeatureCard>
+        </div>
+      </section>
       <InnerCirclesSection />
       <section className="mx-auto max-w-7xl px-5 py-20 sm:px-8 lg:px-10">
   <div className="mx-auto mb-12 max-w-3xl text-center">
@@ -434,29 +456,6 @@ export default function App() {
               </div>
             </div>
           </div>
-        </div>
-      </section>
-
-      <section className="mx-auto max-w-7xl px-5 pb-10 sm:px-8 lg:px-10">
-        <div className="grid gap-5 md:grid-cols-2 lg:grid-cols-4">
-          <FeatureCard icon={MessageCircle} title="Ask one question">
-            Send one meaningful question to a family member or close friend and
-            spark a story worth saving.
-          </FeatureCard>
-
-          <FeatureCard icon={Camera} title="Add story photos">
-            Attach a photo to a memory so the image and the meaning stay together.
-          </FeatureCard>
-
-          <FeatureCard icon={Sparkles} title="Capture real moments">
-            Kinnerly helps turn ordinary check-ins into stories, reflections, and
-            keepsakes.
-          </FeatureCard>
-
-          <FeatureCard icon={ShieldCheck} title="Private by design">
-            No public feed. No posting without permission. No exact-location
-            tracking. You stay in control.
-          </FeatureCard>
         </div>
       </section>
 
