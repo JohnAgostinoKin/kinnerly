@@ -1,3 +1,4 @@
+import StoryPhotosSection from "./StoryPhotosSection";
 import InnerCirclesSection from "./InnerCirclesSection";
 import { Analytics } from "@vercel/analytics/react";
 import {
@@ -369,6 +370,8 @@ export default function App() {
           </div>
         </div>
       </section>
+     
+      <StoryPhotosSection />
 
       <section className="mx-auto my-6 max-w-7xl rounded-[2rem] border border-rose-100 bg-rose-50 px-5 py-20 shadow-sm sm:px-8 lg:px-10">
         <div className="grid items-center gap-12 lg:grid-cols-2">
