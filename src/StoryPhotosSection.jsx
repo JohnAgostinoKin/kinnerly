@@ -7,7 +7,7 @@ function StoryPhotoCard({ image, alt, label, prompt, memory }) {
       <img
   src={image}
   alt={alt}
-  className="h-72 w-full object-contain bg-stone-100 p-4"
+  className="h-80 w-full object-contain bg-stone-100 p-3 sm:h-96"
 />
 
       <div className="p-6">
