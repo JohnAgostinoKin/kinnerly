@@ -235,6 +235,71 @@ export default function App() {
         </div>
       </section>
       <StoryPhotosSection />
+      <section className="mx-auto my-6 max-w-7xl rounded-[2rem] border border-rose-100 bg-rose-50 px-5 py-20 shadow-sm sm:px-8 lg:px-10">
+        <div className="grid items-center gap-12 lg:grid-cols-2">
+          <div>
+            
+            <h2 className="text-4xl font-black tracking-tight sm:text-5xl">
+              Story Photos preserve the memory behind the picture.
+            </h2>
+            <p className="mt-5 text-lg leading-8 text-stone-600">
+              Kinnerly is not just a place to store photos. It is a place to save
+              the stories behind them. Share a meaningful picture, ask one simple
+              question, and turn the replies into a private Memory Thread.
+            </p>
+
+            <ul className="mt-6 space-y-3 text-stone-700">
+              <li>• Upload a meaningful family photo</li>
+              <li>• Ask: “What do you remember about this day?”</li>
+              <li>• Collect replies from family or close friends</li>
+              <li>• Keep the photo and the story together</li>
+            </ul>
+          </div>
+
+          <div className="rounded-[2rem] border border-stone-200 bg-white p-5 shadow-xl shadow-rose-950/5">
+            <div className="mb-4 flex items-center justify-between">
+              <div>
+                <p className="text-xs font-semibold uppercase tracking-[0.2em] text-rose-500">
+                  Story Photos
+                </p>
+                <h3 className="mt-1 text-xl font-semibold text-stone-950">
+                  The story behind the photo
+                </h3>
+              </div>
+              <div className="flex h-11 w-11 items-center justify-center rounded-2xl bg-rose-50 text-rose-600">
+                <Camera size={22} />
+              </div>
+            </div>
+
+            <div className="rounded-3xl bg-stone-50 p-5">
+              <div className="mb-4 rounded-2xl bg-white p-4 shadow-sm ring-1 ring-stone-200">
+                <p className="text-sm font-medium text-stone-500">Photo prompt</p>
+                <p className="mt-1 text-lg font-semibold text-stone-950">
+                  “What do you remember about this day?”
+                </p>
+              </div>
+
+              <div className="space-y-3">
+                <div className="rounded-2xl bg-white p-4 shadow-sm ring-1 ring-stone-200">
+                  <p className="text-sm text-stone-600">
+                    “That was the year Uncle Joe burned the turkey.”
+                  </p>
+                </div>
+                <div className="rounded-2xl bg-white p-4 shadow-sm ring-1 ring-stone-200">
+                  <p className="text-sm text-stone-600">
+                    “Grandma wore that apron every holiday.”
+                  </p>
+                </div>
+                <div className="rounded-2xl bg-white p-4 shadow-sm ring-1 ring-stone-200">
+                  <p className="text-sm text-stone-600">
+                    “That was our last Thanksgiving at the old house.”
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
       <InnerCirclesSection />
       <section className="mx-auto max-w-7xl px-5 py-20 sm:px-8 lg:px-10">
   <div className="mx-auto mb-12 max-w-3xl text-center">
@@ -364,72 +429,6 @@ export default function App() {
                   <p className="mt-1 text-sm text-stone-700">
                     “I’ll be near Charlotte next week and thought of you. Would
                     love to say hello if timing works.”
-                  </p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section className="mx-auto my-6 max-w-7xl rounded-[2rem] border border-rose-100 bg-rose-50 px-5 py-20 shadow-sm sm:px-8 lg:px-10">
-        <div className="grid items-center gap-12 lg:grid-cols-2">
-          <div>
-            
-            <h2 className="text-4xl font-black tracking-tight sm:text-5xl">
-              Story Photos preserve the memory behind the picture.
-            </h2>
-            <p className="mt-5 text-lg leading-8 text-stone-600">
-              Kinnerly is not just a place to store photos. It is a place to save
-              the stories behind them. Share a meaningful picture, ask one simple
-              question, and turn the replies into a private Memory Thread.
-            </p>
-
-            <ul className="mt-6 space-y-3 text-stone-700">
-              <li>• Upload a meaningful family photo</li>
-              <li>• Ask: “What do you remember about this day?”</li>
-              <li>• Collect replies from family or close friends</li>
-              <li>• Keep the photo and the story together</li>
-            </ul>
-          </div>
-
-          <div className="rounded-[2rem] border border-stone-200 bg-white p-5 shadow-xl shadow-rose-950/5">
-            <div className="mb-4 flex items-center justify-between">
-              <div>
-                <p className="text-xs font-semibold uppercase tracking-[0.2em] text-rose-500">
-                  Story Photos
-                </p>
-                <h3 className="mt-1 text-xl font-semibold text-stone-950">
-                  The story behind the photo
-                </h3>
-              </div>
-              <div className="flex h-11 w-11 items-center justify-center rounded-2xl bg-rose-50 text-rose-600">
-                <Camera size={22} />
-              </div>
-            </div>
-
-            <div className="rounded-3xl bg-stone-50 p-5">
-              <div className="mb-4 rounded-2xl bg-white p-4 shadow-sm ring-1 ring-stone-200">
-                <p className="text-sm font-medium text-stone-500">Photo prompt</p>
-                <p className="mt-1 text-lg font-semibold text-stone-950">
-                  “What do you remember about this day?”
-                </p>
-              </div>
-
-              <div className="space-y-3">
-                <div className="rounded-2xl bg-white p-4 shadow-sm ring-1 ring-stone-200">
-                  <p className="text-sm text-stone-600">
-                    “That was the year Uncle Joe burned the turkey.”
-                  </p>
-                </div>
-                <div className="rounded-2xl bg-white p-4 shadow-sm ring-1 ring-stone-200">
-                  <p className="text-sm text-stone-600">
-                    “Grandma wore that apron every holiday.”
-                  </p>
-                </div>
-                <div className="rounded-2xl bg-white p-4 shadow-sm ring-1 ring-stone-200">
-                  <p className="text-sm text-stone-600">
-                    “That was our last Thanksgiving at the old house.”
                   </p>
                 </div>
               </div>
