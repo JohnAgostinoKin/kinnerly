@@ -181,4 +181,15 @@
     right: 0;
     border-right-color: var(--border);
   }
+}html,
+body,
+#root {
+  min-height: 100%;
+  background: #f3ebe6;
+}
+
+body {
+  background:
+    radial-gradient(circle at top left, rgba(201, 124, 122, 0.12), transparent 32rem),
+    linear-gradient(180deg, #f3ebe6 0%, #eee0da 100%);
 }
