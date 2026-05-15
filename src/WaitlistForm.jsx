@@ -8,33 +8,37 @@ export default function WaitlistForm() {
   const [form, setForm] = useState({
     name: "",
     email: "",
-    useCase: "Parents or grandparents",
+    useCase: "",
   });
 
-  async function handleSubmit(e) {
-    e.preventDefault();
-    setIsSubmitting(true);
+  function updateField(field, value) {
+    setForm((current) => ({
+      ...current,
+      [field]: value,
+    }));
+  }
+
+  async function handleSubmit(event) {
+    event.preventDefault();
 
     if (!supabase) {
-      setIsSubmitting(false);
-      alert("The waitlist is not connected yet. Please check the Supabase settings.");
+      alert("Kinnerly is not connected to the waitlist database yet.");
       return;
     }
 
-    const { error } = await supabase.from("waitlist").insert([
-      {
-        first_name: form.name,
-        email: form.email,
-        use_case: form.useCase,
-        source: "kinnerly_landing_page",
-      },
-    ]);
+    setIsSubmitting(true);
+
+    const { error } = await supabase.from("waitlist").insert({
+      first_name: form.name,
+      email: form.email,
+      use_case: form.useCase,
+      source: "kinnerly_memory_landing_page",
+    });
 
     setIsSubmitting(false);
 
     if (error && error.code !== "23505") {
       alert("Something went wrong. Please try again.");
-      console.error(error);
       return;
     }
 
@@ -43,15 +47,16 @@ export default function WaitlistForm() {
 
   if (submitted) {
     return (
-      <div className="rounded-3xl border border-emerald-200 bg-emerald-50 p-6 text-center shadow-sm">
-        <div className="mx-auto mb-3 flex h-12 w-12 items-center justify-center rounded-full bg-white text-emerald-600">
-          <CheckCircle2 />
+      <div className="rounded-[2rem] border border-[#d9c7ad] bg-[#fffaf2] p-6 shadow-xl shadow-[#241925]/10">
+        <div className="mb-4 flex h-14 w-14 items-center justify-center rounded-2xl bg-[#ead1bd] text-[#8d4d3f]">
+          <CheckCircle2 size={28} />
         </div>
-        <h3 className="text-xl font-semibold text-stone-950">
+        <h3 className="text-2xl font-black text-[#241925]">
           You’re on the early access list.
         </h3>
-        <p className="mt-2 text-sm leading-6 text-stone-600">
-          Thanks for joining Kinnerly. We’ll be in touch as the private beta opens.
+        <p className="mt-3 leading-7 text-[#66584e]">
+          Thanks for joining Kinnerly. We’ll be in touch as the private memory
+          beta opens.
         </p>
       </div>
     );
@@ -60,72 +65,67 @@ export default function WaitlistForm() {
   return (
     <form
       onSubmit={handleSubmit}
-      className="rounded-3xl border border-stone-200 bg-white p-5 shadow-xl shadow-rose-950/5 sm:p-6"
+      className="rounded-[2rem] border border-[#d9c7ad] bg-[#fffaf2] p-6 shadow-xl shadow-[#241925]/10"
     >
       <div className="mb-5">
-        <h3 className="text-xl font-semibold text-stone-950">
-          Join the private beta
-        </h3>
-        <p className="mt-1 text-sm text-stone-600">
-          Be among the first families invited into Kinnerly.
+        <p className="text-xs font-bold uppercase tracking-[0.2em] text-[#a85f4c]">
+          Join the beta
         </p>
+        <h3 className="mt-2 text-2xl font-black text-[#241925]">
+          Start preserving what matters.
+        </h3>
       </div>
 
-      <label className="mb-4 block">
-        <span className="mb-1 block text-sm font-medium text-stone-700">
-          First name
-        </span>
-        <input
-          value={form.name}
-          onChange={(e) => setForm({ ...form, name: e.target.value })}
-          required
-          placeholder="John"
-          className="w-full rounded-2xl border border-stone-200 bg-stone-50 px-4 py-3 text-stone-900 outline-none ring-rose-200 transition focus:border-rose-300 focus:ring-4"
-        />
-      </label>
+      <div className="grid gap-4">
+        <label className="grid gap-2">
+          <span className="text-sm font-bold text-[#241925]">First name</span>
+          <input
+            required
+            value={form.name}
+            onChange={(event) => updateField("name", event.target.value)}
+            className="rounded-2xl border border-[#d9c7ad] bg-white px-4 py-3 text-[#241925] outline-none transition focus:border-[#8d4d3f] focus:ring-4 focus:ring-[#8d4d3f]/15"
+            placeholder="John"
+          />
+        </label>
 
-      <label className="mb-4 block">
-        <span className="mb-1 block text-sm font-medium text-stone-700">
-          Email
-        </span>
-        <input
-          value={form.email}
-          onChange={(e) => setForm({ ...form, email: e.target.value })}
-          required
-          type="email"
-          placeholder="you@example.com"
-          className="w-full rounded-2xl border border-stone-200 bg-stone-50 px-4 py-3 text-stone-900 outline-none ring-rose-200 transition focus:border-rose-300 focus:ring-4"
-        />
-      </label>
+        <label className="grid gap-2">
+          <span className="text-sm font-bold text-[#241925]">Email</span>
+          <input
+            required
+            type="email"
+            value={form.email}
+            onChange={(event) => updateField("email", event.target.value)}
+            className="rounded-2xl border border-[#d9c7ad] bg-white px-4 py-3 text-[#241925] outline-none transition focus:border-[#8d4d3f] focus:ring-4 focus:ring-[#8d4d3f]/15"
+            placeholder="you@example.com"
+          />
+        </label>
 
-      <label className="mb-5 block">
-        <span className="mb-1 block text-sm font-medium text-stone-700">
-          Who would you use Kinnerly for?
-        </span>
-        <select
-          value={form.useCase}
-          onChange={(e) => setForm({ ...form, useCase: e.target.value })}
-          className="w-full rounded-2xl border border-stone-200 bg-stone-50 px-4 py-3 text-stone-900 outline-none ring-rose-200 transition focus:border-rose-300 focus:ring-4"
-        >
-          <option>Parents or grandparents</option>
-          <option>Children or grandchildren</option>
-          <option>Siblings and cousins</option>
-          <option>Close friends</option>
-          <option>Family reunion</option>
-          <option>Legacy stories</option>
-        </select>
-      </label>
+        <label className="grid gap-2">
+          <span className="text-sm font-bold text-[#241925]">
+            What would you use Kinnerly for?
+          </span>
+          <textarea
+            value={form.useCase}
+            onChange={(event) => updateField("useCase", event.target.value)}
+            className="min-h-28 rounded-2xl border border-[#d9c7ad] bg-white px-4 py-3 text-[#241925] outline-none transition focus:border-[#8d4d3f] focus:ring-4 focus:ring-[#8d4d3f]/15"
+            placeholder="Old family photos, stories, reunions, grandparents, recipes, places, or making new memories..."
+          />
+        </label>
+      </div>
 
       <button
         disabled={isSubmitting}
-        className="group flex w-full items-center justify-center rounded-2xl bg-stone-950 px-5 py-3 font-semibold text-white transition hover:bg-rose-700 disabled:opacity-60"
+        className="group mt-5 inline-flex w-full items-center justify-center rounded-2xl bg-[#241925] px-6 py-4 font-bold text-white shadow-lg shadow-[#241925]/15 transition hover:bg-[#8d4d3f] disabled:cursor-not-allowed disabled:opacity-70"
       >
-        {isSubmitting ? "Joining..." : "Request early access"}
-        <ArrowRight className="ml-2 transition group-hover:translate-x-1" size={18} />
+        {isSubmitting ? "Joining..." : "Join the private beta"}
+        <ArrowRight
+          className="ml-2 transition group-hover:translate-x-1"
+          size={19}
+        />
       </button>
 
-      <p className="mt-4 text-center text-xs leading-5 text-stone-500">
-        Private by design. No public feed. No posting without permission.
+      <p className="mt-4 text-center text-xs leading-5 text-[#75665b]">
+        No spam. No public feed. Just early updates as Kinnerly takes shape.
       </p>
     </form>
   );
