@@ -30,15 +30,15 @@ const memoryPrompts = [
 
 const memoryMoments = [
   {
-    title: "Save an old story",
+    title: "Save An Old Story",
     text: "Ask one question before the details fade.",
   },
   {
-    title: "Capture a new moment",
+    title: "Capture A New Moment",
     text: "Turn today’s gathering, trip, or call into something worth keeping.",
   },
   {
-    title: "Make the next memory",
+    title: "Make The Next Memory",
     text: "Use people, places, and prompts to bring everyone together again.",
   },
 ];
@@ -90,7 +90,7 @@ function MemoryPromptDemo() {
 
       <div className="rounded-3xl bg-[#efe5d4] p-5">
         <p className="mb-2 text-sm font-semibold text-[#66584e]">
-          Suggested question
+          Suggested Question
         </p>
         <p className="text-2xl font-black leading-snug text-[#241925]">
           “{question}”
@@ -102,10 +102,10 @@ function MemoryPromptDemo() {
           onClick={() => setIndex((index + 1) % memoryPrompts.length)}
           className="rounded-2xl border border-[#d9c7ad] bg-white px-4 py-3 text-sm font-bold text-[#241925] transition hover:bg-[#fff4e6]"
         >
-          New prompt
+          New Prompt
         </button>
         <button className="rounded-2xl bg-[#241925] px-4 py-3 text-sm font-bold text-white transition hover:bg-[#8d4d3f]">
-          Save memory
+          Save Memory
         </button>
       </div>
     </div>
@@ -132,7 +132,7 @@ function MemoryMomentStack() {
                   {moment.title}
                 </p>
                 <p className="text-xs font-bold text-[#a85f4c]">
-                  Kinnerly moment
+                  Kinnerly Moment
                 </p>
               </div>
             </div>
@@ -163,7 +163,7 @@ export default function KinnerlyLandingPage() {
               <div>
                 <p className="text-xl font-black tracking-tight">Kinnerly</p>
                 <p className="text-xs font-bold uppercase tracking-[0.18em] text-[#8d4d3f]">
-                  Because memories matter most.
+                  Because Memories Matter Most
                 </p>
               </div>
             </div>
@@ -172,19 +172,19 @@ export default function KinnerlyLandingPage() {
               href="#waitlist"
               className="hidden rounded-full bg-[#fffaf2] px-5 py-2.5 text-sm font-bold text-[#241925] shadow-sm ring-1 ring-[#d9c7ad] transition hover:bg-white sm:inline-flex"
             >
-              Join beta
+              Join Beta
             </a>
           </nav>
 
           <div className="grid items-center gap-12 lg:grid-cols-[1.05fr_0.95fr]">
             <div>
               <div className="mb-5 flex flex-wrap gap-2">
-                <Badge>Private memory platform</Badge>
-                <Badge>Old stories</Badge>
-                <Badge>New moments</Badge>
+                <Badge>Private Memory Platform</Badge>
+                <Badge>Old Stories</Badge>
+                <Badge>New Moments</Badge>
               </div>
 
-              <h1 className="max-w-4xl text-5xl font-black tracking-tight text-[#241925] sm:text-6xl lg:text-7xl">
+              <h1 className="text-balance max-w-4xl text-5xl font-black tracking-tight text-[#241925] sm:text-6xl lg:text-7xl">
                 Preserve the memories that matter most — and make new ones
                 together.
               </h1>
@@ -261,7 +261,7 @@ export default function KinnerlyLandingPage() {
             What Kinnerly does
           </p>
           <h2 className="text-4xl font-black tracking-tight sm:text-5xl">
-            A memory home for your real people.
+            A private home for the memories that matter.
           </h2>
           <p className="mt-4 text-lg leading-8 text-[#66584e]">
             Kinnerly helps turn scattered photos, forgotten stories, family
@@ -297,7 +297,7 @@ export default function KinnerlyLandingPage() {
         <div className="grid items-center gap-12 lg:grid-cols-[0.9fr_1.1fr]">
           <div>
             <p className="mb-3 text-sm font-bold uppercase tracking-[0.22em] text-[#d6a64f]">
-              Memory Map
+              Kinnerly Map
             </p>
             <h2 className="text-4xl font-black tracking-tight sm:text-5xl">
               See where new memories can happen next.
@@ -320,7 +320,7 @@ export default function KinnerlyLandingPage() {
                   <MapPin />
                 </div>
                 <div>
-                  <p className="font-black">Memory Map</p>
+                  <p className="font-black">Kinnerly Map</p>
                   <p className="text-sm text-[#66584e]">
                     Places connected to your people
                   </p>
@@ -360,7 +360,7 @@ export default function KinnerlyLandingPage() {
         <div className="grid gap-6 lg:grid-cols-[0.85fr_1.15fr]">
           <div>
             <p className="mb-3 text-sm font-bold uppercase tracking-[0.22em] text-[#a85f4c]">
-              Private by design
+              Private By Design
             </p>
             <h2 className="text-4xl font-black tracking-tight sm:text-5xl">
               Built for memories, not performance.
@@ -392,7 +392,7 @@ export default function KinnerlyLandingPage() {
       >
         <div>
           <p className="mb-3 text-sm font-bold uppercase tracking-[0.22em] text-[#a85f4c]">
-            Early access
+            Early Access
           </p>
           <h2 className="text-4xl font-black tracking-tight sm:text-5xl">
             Help shape Kinnerly before launch.
@@ -414,7 +414,7 @@ export default function KinnerlyLandingPage() {
 
             <div className="rounded-3xl bg-[#fffaf2] p-5 shadow-sm ring-1 ring-[#d9c7ad]">
               <Sparkles className="mb-3 text-[#a85f4c]" />
-              <h3 className="font-black">Founder feedback</h3>
+              <h3 className="font-black">Founder Feedback</h3>
               <p className="mt-1 text-sm leading-6 text-[#66584e]">
                 Help choose the prompts, Story Photo tools, and memory features
                 that matter most.

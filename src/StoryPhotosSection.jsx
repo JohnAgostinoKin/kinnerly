@@ -39,7 +39,10 @@ export default function StoryPhotosSection() {
         </p>
 
         <h2 className="text-4xl font-black tracking-tight text-[#241925] sm:text-5xl">
-          The photo is only half the memory.
+          <h2 className="text-balance text-4xl font-black tracking-tight text-[#241925] sm:text-5xl">
+  Old photos can spark{" "}
+  <span className="whitespace-nowrap">a memory.</span>
+</h2>
         </h2>
 
         <p className="mt-4 text-lg leading-8 text-[#66584e]">

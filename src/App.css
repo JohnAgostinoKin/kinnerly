@@ -192,4 +192,17 @@ body {
   background:
     radial-gradient(circle at top left, rgba(201, 124, 122, 0.12), transparent 32rem),
     linear-gradient(180deg, #f3ebe6 0%, #eee0da 100%);
+}/* Prevent awkward one-word hanging lines in headings and key copy */
+h1,
+h2,
+h3,
+h4,
+.text-balance {
+  text-wrap: balance;
+}
+
+p,
+li,
+.text-pretty {
+  text-wrap: pretty;
 }
