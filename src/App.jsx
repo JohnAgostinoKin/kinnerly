@@ -78,8 +78,13 @@ function MemoryPromptDemo() {
             One question can save a story.
           </h3>
         </div>
-        <div className="flex h-11 w-11 items-center justify-center rounded-2xl bg-[#ead1bd] text-[#8d4d3f]">
-          <Sparkles size={22} />
+
+        <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-[#fffaf2] shadow-sm ring-1 ring-[#d9c7ad]">
+          <img
+            src="/favicon.png"
+            alt="Kinnerly"
+            className="h-9 w-9 rounded-xl"
+          />
         </div>
       </div>
 
