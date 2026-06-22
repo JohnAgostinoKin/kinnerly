@@ -4,6 +4,7 @@ import { supabase } from "./supabaseClient";
 
 export default function WaitlistForm() {
   const [submitted, setSubmitted] = useState(false);
+  const [duplicate, setDuplicate] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [form, setForm] = useState({
     name: "",
@@ -29,16 +30,18 @@ export default function WaitlistForm() {
     setIsSubmitting(true);
 
     const { error } = await supabase.from("waitlist").insert({
-      first_name: form.name,
       email: form.email,
-      use_case: form.useCase,
-      source: "kinnerly_memory_landing_page",
+      source: "kinnerly",
     });
 
     setIsSubmitting(false);
 
-    if (error && error.code !== "23505") {
-      alert("Something went wrong. Please try again.");
+    if (error) {
+      if (error.code === "23505") {
+        setDuplicate(true);
+      } else {
+        alert("Something went wrong. Please try again.");
+      }
       return;
     }
 
@@ -56,6 +59,23 @@ export default function WaitlistForm() {
         </h3>
         <p className="mt-3 leading-7 text-[#66584e]">
           Thanks for joining Kinnerly. We’ll be in touch as the private memory
+          beta opens.
+        </p>
+      </div>
+    );
+  }
+
+  if (duplicate) {
+    return (
+      <div className="rounded-[2rem] border border-[#d9c7ad] bg-[#fffaf2] p-6 shadow-xl shadow-[#241925]/10">
+        <div className="mb-4 flex h-14 w-14 items-center justify-center rounded-2xl bg-[#ead1bd] text-[#8d4d3f]">
+          <CheckCircle2 size={28} />
+        </div>
+        <h3 className="text-2xl font-black text-[#241925]">
+          You’re already on the list.
+        </h3>
+        <p className="mt-3 leading-7 text-[#66584e]">
+          We already have your email. We’ll be in touch as the private memory
           beta opens.
         </p>
       </div>
