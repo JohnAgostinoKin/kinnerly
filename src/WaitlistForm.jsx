@@ -45,6 +45,7 @@ export default function WaitlistForm() {
       return;
     }
 
+    if (typeof fbq === "function") fbq("track", "Lead");
     setSubmitted(true);
   }
 
